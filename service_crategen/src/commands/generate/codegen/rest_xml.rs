@@ -229,6 +229,13 @@ fn generate_payload_member_serialization(shape: &Shape) -> String {
     let payload_field = shape.payload.as_ref().unwrap();
     let payload_member = shape.members.as_ref().unwrap().get(payload_field).unwrap();
 
+    // Sometimes the shape name is slightly different than location.
+    // For example: S3 MultipartUpload has a CompletedMultipartUpload shape that's in CompleteMultipartUpload.
+    let location = match payload_member.location_name {
+        Some(ref l) => l,
+        None => &payload_member.shape,
+    };
+
     // if the member is 'streaming', it's a Vec<u8> that should just be delivered as the body
     if payload_member.streaming() {
         format!("payload = input.{}.clone().unwrap();",
@@ -237,17 +244,19 @@ fn generate_payload_member_serialization(shape: &Shape) -> String {
     // otherwise serialize the object to XML and use that as the payload
     else if shape.required(payload_field) {
         // some payload types are not required members of their shape
-        format!("payload = {xml_type}Serializer::serialize(\"{xml_type}\", &input.{payload_field}).into_bytes();",
+        format!("payload = {xml_type}Serializer::serialize(\"{location}\", &input.{payload_field}).into_bytes();",
                 payload_field = payload_field.to_snake_case(),
-                xml_type = payload_member.shape)
+                xml_type = payload_member.shape,
+                location = location)
     } else {
         format!("if input.{payload_field}.is_some() {{
-                    payload = {xml_type}Serializer::serialize(\"{xml_type}\", input.{payload_field}.as_ref().unwrap()).into_bytes();
+                    payload = {xml_type}Serializer::serialize(\"{location}\", input.{payload_field}.as_ref().unwrap()).into_bytes();
                 }} else {{
                     payload = Vec::new();
                 }}",
                 payload_field = payload_field.to_snake_case(),
-                xml_type = payload_member.shape)
+                xml_type = payload_member.shape,
+                location = location)
     }
 
 }
@@ -315,7 +324,7 @@ fn generate_list_serializer(shape: &Shape) -> String {
 
     serializer += &format!("
         for element in obj {{
-            parts.push({element_type}Serializer::serialize(\"{element_type}\", element));
+            parts.push({element_type}Serializer::serialize(name, element));
         }}",
                            element_type = element_type);
 

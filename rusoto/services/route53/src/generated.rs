@@ -585,7 +585,7 @@ impl ChangesSerializer {
         let mut parts: Vec<String> = Vec::new();
         parts.push(format!("<{}>", name));
         for element in obj {
-            parts.push(ChangeSerializer::serialize("Change", element));
+            parts.push(ChangeSerializer::serialize(name, element));
         }
         parts.push(format!("</{}>", name));
         parts.join("")
@@ -683,7 +683,7 @@ impl ChildHealthCheckListSerializer {
         let mut parts: Vec<String> = Vec::new();
         parts.push(format!("<{}>", name));
         for element in obj {
-            parts.push(HealthCheckIdSerializer::serialize("HealthCheckId", element));
+            parts.push(HealthCheckIdSerializer::serialize(name, element));
         }
         parts.push(format!("</{}>", name));
         parts.join("")
@@ -3656,7 +3656,7 @@ impl HealthCheckRegionListSerializer {
         let mut parts: Vec<String> = Vec::new();
         parts.push(format!("<{}>", name));
         for element in obj {
-            parts.push(HealthCheckRegionSerializer::serialize("HealthCheckRegion", element));
+            parts.push(HealthCheckRegionSerializer::serialize(name, element));
         }
         parts.push(format!("</{}>", name));
         parts.join("")
@@ -6189,7 +6189,7 @@ impl ResourceRecordsSerializer {
         let mut parts: Vec<String> = Vec::new();
         parts.push(format!("<{}>", name));
         for element in obj {
-            parts.push(ResourceRecordSerializer::serialize("ResourceRecord", element));
+            parts.push(ResourceRecordSerializer::serialize(name, element));
         }
         parts.push(format!("</{}>", name));
         parts.join("")
@@ -6549,7 +6549,7 @@ impl TagKeyListSerializer {
         let mut parts: Vec<String> = Vec::new();
         parts.push(format!("<{}>", name));
         for element in obj {
-            parts.push(TagKeySerializer::serialize("TagKey", element));
+            parts.push(TagKeySerializer::serialize(name, element));
         }
         parts.push(format!("</{}>", name));
         parts.join("")
@@ -6605,7 +6605,7 @@ impl TagListSerializer {
         let mut parts: Vec<String> = Vec::new();
         parts.push(format!("<{}>", name));
         for element in obj {
-            parts.push(TagSerializer::serialize("Tag", element));
+            parts.push(TagSerializer::serialize(name, element));
         }
         parts.push(format!("</{}>", name));
         parts.join("")
@@ -6645,7 +6645,7 @@ impl TagResourceIdListSerializer {
         let mut parts: Vec<String> = Vec::new();
         parts.push(format!("<{}>", name));
         for element in obj {
-            parts.push(TagResourceIdSerializer::serialize("TagResourceId", element));
+            parts.push(TagResourceIdSerializer::serialize(name, element));
         }
         parts.push(format!("</{}>", name));
         parts.join("")
