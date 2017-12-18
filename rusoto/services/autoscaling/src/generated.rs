@@ -81,7 +81,7 @@ impl ActivitiesDeserializer {
     }
 }
 #[doc="<p>Contains the output of DescribeScalingActivities.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ActivitiesType {
     #[doc="<p>The scaling activities. Activities are sorted by start time. Activities still in progress are described first.</p>"]
     pub activities: Vec<Activity>,
@@ -136,7 +136,7 @@ impl ActivitiesTypeDeserializer {
     }
 }
 #[doc="<p>Describes scaling activity, which is a long-running process that represents a change to your Auto Scaling group, such as changing its size or replacing an instance.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct Activity {
     #[doc="<p>The ID of the activity.</p>"]
     pub activity_id: String,
@@ -255,7 +255,7 @@ impl ActivityIdsSerializer {
 }
 
 #[doc="<p>Contains the output of TerminateInstancesInAutoScalingGroup.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ActivityType {
     #[doc="<p>A scaling activity.</p>"]
     pub activity: Option<Activity>,
@@ -304,7 +304,7 @@ impl ActivityTypeDeserializer {
     }
 }
 #[doc="<p>Describes a policy adjustment type.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html\">Dynamic Scaling</a> in the <i>Auto Scaling User Guide</i>.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AdjustmentType {
     #[doc="<p>The policy adjustment type. The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>"]
     pub adjustment_type: Option<String>,
@@ -395,7 +395,7 @@ impl AdjustmentTypesDeserializer {
     }
 }
 #[doc="<p>Describes an alarm.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct Alarm {
     #[doc="<p>The Amazon Resource Name (ARN) of the alarm.</p>"]
     pub alarm_arn: Option<String>,
@@ -521,7 +521,7 @@ impl AssociatePublicIpAddressDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for AttachInstances.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AttachInstancesQuery {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: String,
@@ -550,7 +550,7 @@ impl AttachInstancesQuerySerializer {
     }
 }
 
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AttachLoadBalancerTargetGroupsResultType;
 
 struct AttachLoadBalancerTargetGroupsResultTypeDeserializer;
@@ -571,7 +571,7 @@ impl AttachLoadBalancerTargetGroupsResultTypeDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for AttachLoadBalancerTargetGroups.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AttachLoadBalancerTargetGroupsType {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -599,7 +599,7 @@ impl AttachLoadBalancerTargetGroupsTypeSerializer {
 }
 
 #[doc="<p>Contains the output of AttachLoadBalancers.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AttachLoadBalancersResultType;
 
 struct AttachLoadBalancersResultTypeDeserializer;
@@ -619,7 +619,7 @@ impl AttachLoadBalancersResultTypeDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for AttachLoadBalancers.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AttachLoadBalancersType {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: String,
@@ -647,7 +647,7 @@ impl AttachLoadBalancersTypeSerializer {
 }
 
 #[doc="<p>Describes an Auto Scaling group.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AutoScalingGroup {
     #[doc="<p>The Amazon Resource Name (ARN) of the group.</p>"]
     pub auto_scaling_group_arn: Option<String>,
@@ -893,7 +893,7 @@ impl AutoScalingGroupNamesSerializer {
 }
 
 #[doc="<p>Contains the parameters for DescribeAutoScalingGroups.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AutoScalingGroupNamesType {
     #[doc="<p>The group names. If you omit this parameter, all Auto Scaling groups are described.</p>"]
     pub auto_scaling_group_names: Option<Vec<String>>,
@@ -974,7 +974,7 @@ impl AutoScalingGroupsDeserializer {
     }
 }
 #[doc="<p>Contains the output for DescribeAutoScalingGroups.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AutoScalingGroupsType {
     #[doc="<p>The groups.</p>"]
     pub auto_scaling_groups: Vec<AutoScalingGroup>,
@@ -1030,7 +1030,7 @@ impl AutoScalingGroupsTypeDeserializer {
     }
 }
 #[doc="<p>Describes an EC2 instance associated with an Auto Scaling group.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AutoScalingInstanceDetails {
     #[doc="<p>The name of the Auto Scaling group associated with the instance.</p>"]
     pub auto_scaling_group_name: String,
@@ -1165,7 +1165,7 @@ impl AutoScalingInstancesDeserializer {
     }
 }
 #[doc="<p>Contains the output of DescribeAutoScalingInstances.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct AutoScalingInstancesType {
     #[doc="<p>The instances.</p>"]
     pub auto_scaling_instances: Option<Vec<AutoScalingInstanceDetails>>,
@@ -1399,7 +1399,7 @@ impl BlockDeviceEbsVolumeTypeDeserializer {
     }
 }
 #[doc="<p>Describes a block device mapping.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct BlockDeviceMapping {
     #[doc="<p>The device name exposed to the EC2 instance (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>"]
     pub device_name: String,
@@ -1602,7 +1602,7 @@ impl ClassicLinkVPCSecurityGroupsSerializer {
 }
 
 #[doc="<p>Contains the output of CompleteLifecycleAction.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct CompleteLifecycleActionAnswer;
 
 struct CompleteLifecycleActionAnswerDeserializer;
@@ -1622,7 +1622,7 @@ impl CompleteLifecycleActionAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for CompleteLifecycleAction.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct CompleteLifecycleActionType {
     #[doc="<p>The name of the group for the lifecycle hook.</p>"]
     pub auto_scaling_group_name: String,
@@ -1679,7 +1679,7 @@ impl CooldownDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for CreateAutoScalingGroup.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone, Serialize, Deserialize)]
 pub struct CreateAutoScalingGroupType {
     #[doc="<p>The name of the group. This name must be unique within the scope of your AWS account.</p>"]
     pub auto_scaling_group_name: String,
@@ -1799,7 +1799,7 @@ impl CreateAutoScalingGroupTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for CreateLaunchConfiguration.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct CreateLaunchConfigurationType {
     #[doc="<p>Used for groups that launch instances into a virtual private cloud (VPC). Specifies whether to assign a public IP address to each instance. For more information, see <a href=\"http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html\">Launching Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p> <p>If you specify this parameter, be sure to specify at least one subnet when you create your group.</p> <p>Default: If the instance is launched into a default subnet, the default is <code>true</code>. If the instance is launched into a nondefault subnet, the default is <code>false</code>. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html\">Supported Platforms</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"]
     pub associate_public_ip_address: Option<bool>,
@@ -1932,7 +1932,7 @@ impl CreateLaunchConfigurationTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for CreateOrUpdateTags.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct CreateOrUpdateTagsType {
     #[doc="<p>One or more tags.</p>"]
     pub tags: Vec<Tag>,
@@ -1954,7 +1954,7 @@ impl CreateOrUpdateTagsTypeSerializer {
 }
 
 #[doc="<p>Configures a customized metric for a target tracking policy.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct CustomizedMetricSpecification {
     #[doc="<p>The dimensions of the metric.</p>"]
     pub dimensions: Option<Vec<MetricDimension>>,
@@ -2057,7 +2057,7 @@ impl CustomizedMetricSpecificationSerializer {
 }
 
 #[doc="<p>Contains the parameters for DeleteAutoScalingGroup.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DeleteAutoScalingGroupType {
     #[doc="<p>The name of the group to delete.</p>"]
     pub auto_scaling_group_name: String,
@@ -2086,7 +2086,7 @@ impl DeleteAutoScalingGroupTypeSerializer {
 }
 
 #[doc="<p>Contains the output of DeleteLifecycleHook.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DeleteLifecycleHookAnswer;
 
 struct DeleteLifecycleHookAnswerDeserializer;
@@ -2106,7 +2106,7 @@ impl DeleteLifecycleHookAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for DeleteLifecycleHook.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DeleteLifecycleHookType {
     #[doc="<p>The name of the Auto Scaling group for the lifecycle hook.</p>"]
     pub auto_scaling_group_name: String,
@@ -2133,7 +2133,7 @@ impl DeleteLifecycleHookTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DeleteNotificationConfiguration.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DeleteNotificationConfigurationType {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -2160,7 +2160,7 @@ impl DeleteNotificationConfigurationTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DeletePolicy.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DeletePolicyType {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: Option<String>,
@@ -2189,7 +2189,7 @@ impl DeletePolicyTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DeleteScheduledAction.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DeleteScheduledActionType {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -2216,7 +2216,7 @@ impl DeleteScheduledActionTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DeleteTags.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DeleteTagsType {
     #[doc="<p>One or more tags.</p>"]
     pub tags: Vec<Tag>,
@@ -2238,7 +2238,7 @@ impl DeleteTagsTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DescribeAccountLimits.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeAccountLimitsAnswer {
     #[doc="<p>The maximum number of groups allowed for your AWS account. The default limit is 20 per region.</p>"]
     pub max_number_of_auto_scaling_groups: Option<i64>,
@@ -2301,7 +2301,7 @@ impl DescribeAccountLimitsAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for DescribeAdjustmentTypes.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeAdjustmentTypesAnswer {
     #[doc="<p>The policy adjustment types.</p>"]
     pub adjustment_types: Option<Vec<AdjustmentType>>,
@@ -2351,7 +2351,7 @@ impl DescribeAdjustmentTypesAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for DescribeAutoScalingInstances.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeAutoScalingInstancesType {
     #[doc="<p>The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.</p>"]
     pub instance_ids: Option<Vec<String>>,
@@ -2389,7 +2389,7 @@ impl DescribeAutoScalingInstancesTypeSerializer {
 }
 
 #[doc="<p>Contains the output of DescribeAutoScalingNotificationTypes.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeAutoScalingNotificationTypesAnswer {
     #[doc="<p>The notification types.</p>"]
     pub auto_scaling_notification_types: Option<Vec<String>>,
@@ -2438,7 +2438,7 @@ impl DescribeAutoScalingNotificationTypesAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the output of DescribeLifecycleHookTypes.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeLifecycleHookTypesAnswer {
     #[doc="<p>The lifecycle hook types.</p>"]
     pub lifecycle_hook_types: Option<Vec<String>>,
@@ -2487,7 +2487,7 @@ impl DescribeLifecycleHookTypesAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the output of DescribeLifecycleHooks.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeLifecycleHooksAnswer {
     #[doc="<p>The lifecycle hooks for the specified group.</p>"]
     pub lifecycle_hooks: Option<Vec<LifecycleHook>>,
@@ -2537,7 +2537,7 @@ impl DescribeLifecycleHooksAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for DescribeLifecycleHooks.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeLifecycleHooksType {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: String,
@@ -2567,7 +2567,7 @@ impl DescribeLifecycleHooksTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DescribeLoadBalancerTargetGroups.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeLoadBalancerTargetGroupsRequest {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -2602,7 +2602,7 @@ impl DescribeLoadBalancerTargetGroupsRequestSerializer {
 }
 
 #[doc="<p>Contains the output of DescribeLoadBalancerTargetGroups.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeLoadBalancerTargetGroupsResponse {
     #[doc="<p>Information about the target groups.</p>"]
     pub load_balancer_target_groups: Option<Vec<LoadBalancerTargetGroupState>>,
@@ -2657,7 +2657,7 @@ impl DescribeLoadBalancerTargetGroupsResponseDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for DescribeLoadBalancers.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeLoadBalancersRequest {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: String,
@@ -2692,7 +2692,7 @@ impl DescribeLoadBalancersRequestSerializer {
 }
 
 #[doc="<p>Contains the output of DescribeLoadBalancers.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeLoadBalancersResponse {
     #[doc="<p>The load balancers.</p>"]
     pub load_balancers: Option<Vec<LoadBalancerState>>,
@@ -2748,7 +2748,7 @@ impl DescribeLoadBalancersResponseDeserializer {
     }
 }
 #[doc="<p>Contains the output of DescribeMetricsCollectionTypes.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeMetricCollectionTypesAnswer {
     #[doc="<p>The granularities for the metrics.</p>"]
     pub granularities: Option<Vec<MetricGranularityType>>,
@@ -2806,7 +2806,7 @@ impl DescribeMetricCollectionTypesAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the output from DescribeNotificationConfigurations.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeNotificationConfigurationsAnswer {
     #[doc="<p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>"]
     pub next_token: Option<String>,
@@ -2863,7 +2863,7 @@ impl DescribeNotificationConfigurationsAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for DescribeNotificationConfigurations.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeNotificationConfigurationsType {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_names: Option<Vec<String>>,
@@ -2903,7 +2903,7 @@ impl DescribeNotificationConfigurationsTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DescribePolicies.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribePoliciesType {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: Option<String>,
@@ -2954,7 +2954,7 @@ impl DescribePoliciesTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DescribeScalingActivities.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeScalingActivitiesType {
     #[doc="<p>The activity IDs of the desired scaling activities. If you omit this parameter, all activities for the past six weeks are described. If you specify an Auto Scaling group, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error.</p>"]
     pub activity_ids: Option<Vec<String>>,
@@ -2998,7 +2998,7 @@ impl DescribeScalingActivitiesTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DescribeScheduledActions.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeScheduledActionsType {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: Option<String>,
@@ -3056,7 +3056,7 @@ impl DescribeScheduledActionsTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DescribeTags.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeTagsType {
     #[doc="<p>A filter used to scope the tags to return.</p>"]
     pub filters: Option<Vec<Filter>>,
@@ -3092,7 +3092,7 @@ impl DescribeTagsTypeSerializer {
 }
 
 #[doc="<p>Contains the output of DescribeTerminationPolicyTypes.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DescribeTerminationPolicyTypesAnswer {
     #[doc="<p>The termination policies supported by Auto Scaling (<code>OldestInstance</code>, <code>OldestLaunchConfiguration</code>, <code>NewestInstance</code>, <code>ClosestToNextInstanceHour</code>, and <code>Default</code>).</p>"]
     pub termination_policy_types: Option<Vec<String>>,
@@ -3143,7 +3143,7 @@ impl DescribeTerminationPolicyTypesAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the output of DetachInstances.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DetachInstancesAnswer {
     #[doc="<p>The activities related to detaching the instances from the Auto Scaling group.</p>"]
     pub activities: Option<Vec<Activity>>,
@@ -3192,7 +3192,7 @@ impl DetachInstancesAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for DetachInstances.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DetachInstancesQuery {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: String,
@@ -3227,7 +3227,7 @@ impl DetachInstancesQuerySerializer {
     }
 }
 
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DetachLoadBalancerTargetGroupsResultType;
 
 struct DetachLoadBalancerTargetGroupsResultTypeDeserializer;
@@ -3247,7 +3247,7 @@ impl DetachLoadBalancerTargetGroupsResultTypeDeserializer {
 
     }
 }
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DetachLoadBalancerTargetGroupsType {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -3275,7 +3275,7 @@ impl DetachLoadBalancerTargetGroupsTypeSerializer {
 }
 
 #[doc="<p>Contains the output for DetachLoadBalancers.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DetachLoadBalancersResultType;
 
 struct DetachLoadBalancersResultTypeDeserializer;
@@ -3295,7 +3295,7 @@ impl DetachLoadBalancersResultTypeDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for DetachLoadBalancers.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DetachLoadBalancersType {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -3323,7 +3323,7 @@ impl DetachLoadBalancersTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for DisableMetricsCollection.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct DisableMetricsCollectionQuery {
     #[doc="<p>The name or Amazon Resource Name (ARN) of the group.</p>"]
     pub auto_scaling_group_name: String,
@@ -3365,7 +3365,7 @@ impl DisableScaleInDeserializer {
     }
 }
 #[doc="<p>Describes an Amazon EBS volume.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct Ebs {
     #[doc="<p>Indicates whether the volume is deleted on instance termination.</p> <p>Default: <code>true</code> </p>"]
     pub delete_on_termination: Option<bool>,
@@ -3496,7 +3496,7 @@ impl EbsOptimizedDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for EnableMetricsCollection.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct EnableMetricsCollectionQuery {
     #[doc="<p>The name or ARN of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -3528,7 +3528,7 @@ impl EnableMetricsCollectionQuerySerializer {
 }
 
 #[doc="<p>Describes an enabled metric.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct EnabledMetric {
     #[doc="<p>The granularity of the metric. The only valid value is <code>1Minute</code>.</p>"]
     pub granularity: Option<String>,
@@ -3626,7 +3626,7 @@ impl EnabledMetricsDeserializer {
     }
 }
 #[doc="<p>Contains the output of EnterStandby.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct EnterStandbyAnswer {
     #[doc="<p>The activities related to moving instances into <code>Standby</code> mode.</p>"]
     pub activities: Option<Vec<Activity>>,
@@ -3675,7 +3675,7 @@ impl EnterStandbyAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for EnteStandby.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct EnterStandbyQuery {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -3725,7 +3725,7 @@ impl EstimatedInstanceWarmupDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for ExecutePolicy.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ExecutePolicyType {
     #[doc="<p>The name or Amazon Resource Name (ARN) of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: Option<String>,
@@ -3772,7 +3772,7 @@ impl ExecutePolicyTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for ExitStandby.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ExitStandbyAnswer {
     #[doc="<p>The activities related to moving instances out of <code>Standby</code> mode.</p>"]
     pub activities: Option<Vec<Activity>>,
@@ -3821,7 +3821,7 @@ impl ExitStandbyAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for ExitStandby.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ExitStandbyQuery {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -3851,7 +3851,7 @@ impl ExitStandbyQuerySerializer {
 }
 
 #[doc="<p>Describes a filter.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct Filter {
     #[doc="<p>The name of the filter. The valid values are: <code>\"auto-scaling-group\"</code>, <code>\"key\"</code>, <code>\"value\"</code>, and <code>\"propagate-at-launch\"</code>.</p>"]
     pub name: Option<String>,
@@ -3935,7 +3935,7 @@ impl HeartbeatTimeoutDeserializer {
     }
 }
 #[doc="<p>Describes an EC2 instance.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct Instance {
     #[doc="<p>The Availability Zone in which the instance is running.</p>"]
     pub availability_zone: String,
@@ -4032,7 +4032,7 @@ impl InstanceIdsSerializer {
 }
 
 #[doc="<p>Describes whether instance monitoring is enabled.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct InstanceMonitoring {
     #[doc="<p>If <code>True</code>, instance monitoring is enabled.</p>"]
     pub enabled: Option<bool>,
@@ -4155,7 +4155,7 @@ impl InstancesDeserializer {
     }
 }
 #[doc="<p>Describes a launch configuration.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct LaunchConfiguration {
     #[doc="<p>[EC2-VPC] Indicates whether to assign a public IP address to each instance.</p>"]
     pub associate_public_ip_address: Option<bool>,
@@ -4324,7 +4324,7 @@ impl LaunchConfigurationDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for DeleteLaunchConfiguration.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct LaunchConfigurationNameType {
     #[doc="<p>The name of the launch configuration.</p>"]
     pub launch_configuration_name: String,
@@ -4359,7 +4359,7 @@ impl LaunchConfigurationNamesSerializer {
 }
 
 #[doc="<p>Contains the parameters for DescribeLaunchConfigurations.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct LaunchConfigurationNamesType {
     #[doc="<p>The launch configuration names. If you omit this parameter, all launch configurations are described.</p>"]
     pub launch_configuration_names: Option<Vec<String>>,
@@ -4441,7 +4441,7 @@ impl LaunchConfigurationsDeserializer {
     }
 }
 #[doc="<p>Contains the output of DescribeLaunchConfigurations.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct LaunchConfigurationsType {
     #[doc="<p>The launch configurations.</p>"]
     pub launch_configurations: Vec<LaunchConfiguration>,
@@ -4511,7 +4511,7 @@ impl LifecycleActionResultDeserializer {
     }
 }
 #[doc="<p>Describes a lifecycle hook, which tells Auto Scaling that you want to perform an action when an instance launches or terminates. When you have a lifecycle hook in place, the Auto Scaling group will either:</p> <ul> <li> <p>Pause the instance after it launches, but before it is put into service</p> </li> <li> <p>Pause the instance as it terminates, but before it is fully terminated</p> </li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html\">Auto Scaling Lifecycle</a> in the <i>Auto Scaling User Guide</i>.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct LifecycleHook {
     #[doc="<p>The name of the Auto Scaling group for the lifecycle hook.</p>"]
     pub auto_scaling_group_name: Option<String>,
@@ -4751,7 +4751,7 @@ impl LoadBalancerNamesSerializer {
 }
 
 #[doc="<p>Describes the state of a Classic Load Balancer.</p> <p>If you specify a load balancer when creating the Auto Scaling group, the state of the load balancer is <code>InService</code>.</p> <p>If you attach a load balancer to an existing Auto Scaling group, the initial state is <code>Adding</code>. The state transitions to <code>Added</code> after all instances in the group are registered with the load balancer. If ELB health checks are enabled for the load balancer, the state transitions to <code>InService</code> after at least one instance in the group passes the health check. If EC2 health checks are enabled instead, the load balancer remains in the <code>Added</code> state.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct LoadBalancerState {
     #[doc="<p>The name of the load balancer.</p>"]
     pub load_balancer_name: Option<String>,
@@ -4849,7 +4849,7 @@ impl LoadBalancerStatesDeserializer {
     }
 }
 #[doc="<p>Describes the state of a target group.</p> <p>If you attach a target group to an existing Auto Scaling group, the initial state is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If ELB health checks are enabled, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. If EC2 health checks are enabled instead, the target group remains in the <code>Added</code> state.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct LoadBalancerTargetGroupState {
     #[doc="<p>The Amazon Resource Name (ARN) of the target group.</p>"]
     pub load_balancer_target_group_arn: Option<String>,
@@ -4976,7 +4976,7 @@ impl MaxNumberOfLaunchConfigurationsDeserializer {
     }
 }
 #[doc="<p>Describes a metric.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct MetricCollectionType {
     #[doc="<p>One of the following metrics:</p> <ul> <li> <p> <code>GroupMinSize</code> </p> </li> <li> <p> <code>GroupMaxSize</code> </p> </li> <li> <p> <code>GroupDesiredCapacity</code> </p> </li> <li> <p> <code>GroupInServiceInstances</code> </p> </li> <li> <p> <code>GroupPendingInstances</code> </p> </li> <li> <p> <code>GroupStandbyInstances</code> </p> </li> <li> <p> <code>GroupTerminatingInstances</code> </p> </li> <li> <p> <code>GroupTotalInstances</code> </p> </li> </ul>"]
     pub metric: Option<String>,
@@ -5068,7 +5068,7 @@ impl MetricCollectionTypesDeserializer {
     }
 }
 #[doc="<p>Describes the dimension of a metric.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct MetricDimension {
     #[doc="<p>The name of the dimension.</p>"]
     pub name: String,
@@ -5222,7 +5222,7 @@ impl MetricDimensionsSerializer {
 }
 
 #[doc="<p>Describes a granularity of a metric.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct MetricGranularityType {
     #[doc="<p>The granularity. The only valid value is <code>1Minute</code>.</p>"]
     pub granularity: Option<String>,
@@ -5466,7 +5466,7 @@ impl NoDeviceDeserializer {
     }
 }
 #[doc="<p>Describes a notification.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct NotificationConfiguration {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: Option<String>,
@@ -5600,7 +5600,7 @@ impl NumberOfLaunchConfigurationsDeserializer {
     }
 }
 #[doc="<p>Contains the output of DescribePolicies.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct PoliciesType {
     #[doc="<p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>"]
     pub next_token: Option<String>,
@@ -5656,7 +5656,7 @@ impl PoliciesTypeDeserializer {
     }
 }
 #[doc="<p>Contains the output of PutScalingPolicy.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct PolicyARNType {
     #[doc="<p>The CloudWatch alarms created for the target tracking policy. This parameter will be empty if the policy type is anything other than <code>TargetTrackingScaling</code>.</p>"]
     pub alarms: Option<Vec<Alarm>>,
@@ -5750,7 +5750,7 @@ impl PolicyTypesSerializer {
 }
 
 #[doc="<p>Configures a predefined metric for a target tracking policy. The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> - average CPU utilization of the Auto Scaling group</p> </li> <li> <p> <code>ASGAverageNetworkIn</code> - average number of bytes received on all network interfaces by the Auto Scaling group</p> </li> <li> <p> <code>ASGAverageNetworkOut</code> - average number of bytes sent out on all network interfaces by the Auto Scaling group</p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> - number of requests completed per target in an Application Load Balancer target group</p> </li> </ul>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct PredefinedMetricSpecification {
     #[doc="<p>The metric type.</p>"]
     pub predefined_metric_type: String,
@@ -5839,7 +5839,7 @@ impl ProcessNamesSerializer {
 }
 
 #[doc="<p>Describes a process type.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html#process-types\">Auto Scaling Processes</a> in the <i>Auto Scaling User Guide</i>.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ProcessType {
     #[doc="<p>One of the following processes:</p> <ul> <li> <p> <code>Launch</code> </p> </li> <li> <p> <code>Terminate</code> </p> </li> <li> <p> <code>AddToLoadBalancer</code> </p> </li> <li> <p> <code>AlarmNotification</code> </p> </li> <li> <p> <code>AZRebalance</code> </p> </li> <li> <p> <code>HealthCheck</code> </p> </li> <li> <p> <code>ReplaceUnhealthy</code> </p> </li> <li> <p> <code>ScheduledActions</code> </p> </li> </ul>"]
     pub process_name: String,
@@ -5930,7 +5930,7 @@ impl ProcessesDeserializer {
     }
 }
 #[doc="<p>Contains the output of DescribeScalingProcessTypes.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ProcessesType {
     #[doc="<p>The names of the process types.</p>"]
     pub processes: Option<Vec<ProcessType>>,
@@ -6007,7 +6007,7 @@ impl PropagateAtLaunchDeserializer {
     }
 }
 #[doc="<p>Contains the output of PutLifecycleHook.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct PutLifecycleHookAnswer;
 
 struct PutLifecycleHookAnswerDeserializer;
@@ -6027,7 +6027,7 @@ impl PutLifecycleHookAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for PutLifecycleHook.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct PutLifecycleHookType {
     #[doc="<p>The name of the Auto Scaling group to which you want to assign the lifecycle hook.</p>"]
     pub auto_scaling_group_name: String,
@@ -6090,7 +6090,7 @@ impl PutLifecycleHookTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for PutNotificationConfiguration.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct PutNotificationConfigurationType {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -6124,7 +6124,7 @@ impl PutNotificationConfigurationTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for PutScalingPolicy.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct PutScalingPolicyType {
     #[doc="<p>The adjustment type. The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p> <p>This parameter is supported if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html\">Dynamic Scaling</a> in the <i>Auto Scaling User Guide</i>.</p>"]
     pub adjustment_type: Option<String>,
@@ -6215,7 +6215,7 @@ impl PutScalingPolicyTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for PutScheduledUpdateGroupAction.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct PutScheduledUpdateGroupActionType {
     #[doc="<p>The name or Amazon Resource Name (ARN) of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -6284,7 +6284,7 @@ impl PutScheduledUpdateGroupActionTypeSerializer {
 }
 
 #[doc="<p>Contains the output of RecordLifecycleActionHeartBeat.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct RecordLifecycleActionHeartbeatAnswer;
 
 struct RecordLifecycleActionHeartbeatAnswerDeserializer;
@@ -6305,7 +6305,7 @@ impl RecordLifecycleActionHeartbeatAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for RecordLifecycleActionHeartbeat.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct RecordLifecycleActionHeartbeatType {
     #[doc="<p>The name of the Auto Scaling group for the hook.</p>"]
     pub auto_scaling_group_name: String,
@@ -6413,7 +6413,7 @@ impl ScalingPoliciesDeserializer {
     }
 }
 #[doc="<p>Describes a scaling policy.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ScalingPolicy {
     #[doc="<p>The adjustment type, which specifies how <code>ScalingAdjustment</code> is interpreted. Valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>"]
     pub adjustment_type: Option<String>,
@@ -6550,7 +6550,7 @@ impl ScalingPolicyDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for SuspendProcesses and ResumeProcesses.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ScalingProcessQuery {
     #[doc="<p>The name or Amazon Resource Name (ARN) of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -6592,7 +6592,7 @@ impl ScheduledActionNamesSerializer {
 }
 
 #[doc="<p>Contains the output of DescribeScheduledActions.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ScheduledActionsType {
     #[doc="<p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>"]
     pub next_token: Option<String>,
@@ -6646,7 +6646,7 @@ impl ScheduledActionsTypeDeserializer {
     }
 }
 #[doc="<p>Describes a scheduled update to an Auto Scaling group.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct ScheduledUpdateGroupAction {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: Option<String>,
@@ -6852,7 +6852,7 @@ impl SecurityGroupsSerializer {
 }
 
 #[doc="<p>Contains the parameters for SetDesiredCapacity.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct SetDesiredCapacityType {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,
@@ -6885,7 +6885,7 @@ impl SetDesiredCapacityTypeSerializer {
 }
 
 #[doc="<p>Contains the parameters for SetInstanceHealth.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct SetInstanceHealthQuery {
     #[doc="<p>The health status of the instance. Set to <code>Healthy</code> if you want the instance to remain in service. Set to <code>Unhealthy</code> if you want the instance to be out of service. Auto Scaling will terminate and replace the unhealthy instance.</p>"]
     pub health_status: String,
@@ -6918,7 +6918,7 @@ impl SetInstanceHealthQuerySerializer {
 }
 
 #[doc="<p>Contains the output of SetInstanceProtection.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct SetInstanceProtectionAnswer;
 
 struct SetInstanceProtectionAnswerDeserializer;
@@ -6938,7 +6938,7 @@ impl SetInstanceProtectionAnswerDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for SetInstanceProtection.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct SetInstanceProtectionQuery {
     #[doc="<p>The name of the group.</p>"]
     pub auto_scaling_group_name: String,
@@ -6984,7 +6984,7 @@ impl SpotPriceDeserializer {
     }
 }
 #[doc="<p>Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.</p> <p>For the following examples, suppose that you have an alarm with a breach threshold of 50:</p> <ul> <li> <p>If you want the adjustment to be triggered when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.</p> </li> <li> <p>If you want the adjustment to be triggered when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.</p> </li> </ul> <p>There are a few rules for the step adjustments for your step policy:</p> <ul> <li> <p>The ranges of your step adjustments can't overlap or have a gap.</p> </li> <li> <p>At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound.</p> </li> <li> <p>At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound.</p> </li> <li> <p>The upper and lower bound can't be null in the same step adjustment.</p> </li> </ul>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct StepAdjustment {
     #[doc="<p>The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.</p>"]
     pub metric_interval_lower_bound: Option<f64>,
@@ -7125,7 +7125,7 @@ impl StepAdjustmentsSerializer {
 }
 
 #[doc="<p>Describes an Auto Scaling process that has been suspended. For more information, see <a>ProcessType</a>.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct SuspendedProcess {
     #[doc="<p>The name of the suspended process.</p>"]
     pub process_name: Option<String>,
@@ -7223,7 +7223,7 @@ impl SuspendedProcessesDeserializer {
     }
 }
 #[doc="<p>Describes a tag for an Auto Scaling group.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct Tag {
     #[doc="<p>The tag key.</p>"]
     pub key: String,
@@ -7270,7 +7270,7 @@ impl TagSerializer {
 }
 
 #[doc="<p>Describes a tag for an Auto Scaling group.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct TagDescription {
     #[doc="<p>The tag key.</p>"]
     pub key: Option<String>,
@@ -7425,7 +7425,7 @@ impl TagsSerializer {
 }
 
 #[doc="<p>Contains the output of DescribeTags.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct TagsType {
     #[doc="<p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>"]
     pub next_token: Option<String>,
@@ -7535,7 +7535,7 @@ impl TargetGroupARNsSerializer {
 }
 
 #[doc="<p>Represents a target tracking policy configuration.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct TargetTrackingConfiguration {
     #[doc="<p>A customized metric.</p>"]
     pub customized_metric_specification: Option<CustomizedMetricSpecification>,
@@ -7635,7 +7635,7 @@ impl TargetTrackingConfigurationSerializer {
 }
 
 #[doc="<p>Contains the parameters for TerminateInstanceInAutoScalingGroup.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct TerminateInstanceInAutoScalingGroupType {
     #[doc="<p>The ID of the instance.</p>"]
     pub instance_id: String,
@@ -7732,7 +7732,7 @@ impl TimestampTypeDeserializer {
     }
 }
 #[doc="<p>Contains the parameters for UpdateAutoScalingGroup.</p>"]
-#[derive(Default,Debug,Clone)]
+#[derive(Default,Debug,Clone,Serialize,Deserialize)]
 pub struct UpdateAutoScalingGroupType {
     #[doc="<p>The name of the Auto Scaling group.</p>"]
     pub auto_scaling_group_name: String,

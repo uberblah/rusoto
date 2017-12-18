@@ -18,6 +18,8 @@
 extern crate hyper;
 extern crate rusoto_core;
 extern crate xml;
+extern crate serde;
+#[macro_use] extern crate serde_derive;
 
 mod generated;
 mod custom;
